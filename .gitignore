@@ -1,0 +1,41 @@
+month=04/
+fas.txt
+.env
+# ===== Credentials & Secrets =====
+.env
+*.tfvars
+dbt/profiles.yml
+
+# ===== Terraform =====
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+
+# ===== dbt =====
+dbt/fraud_detection/target/
+dbt/fraud_detection/dbt_packages/
+dbt/fraud_detection/logs/
+dbt/.user.yml
+dbt/
+
+# ===== Airflow =====
+logs/
+
+# ===== Raw transaction data (download มาจาก S3 ตอน test) =====
+month=*/
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== misc =====
+fas.txt
+
+
+curl
