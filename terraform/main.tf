@@ -2,11 +2,10 @@
 data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
-# ดึง VPC ที่มีอยู่แล้วมาใช้
 data "aws_vpc" "main" {
   filter {
     name   = "cidr"
-    values = ["10.0.0.0/16"]  # ใช้ CIDR แทน ID ปลอดภัยกว่า
+    values = ["10.0.0.0/16"]  # ใช้ CIDR แทน ID ปลอดภัยกว่
   }
 }
 
@@ -25,7 +24,7 @@ data "aws_subnets" "private" {
 module "security" {
   source       = "./modules/security"
   project_name = var.project_name
-  vpc_id       = data.aws_vpc.main.id  # ✅ ดึงมาอัตโนมัติ
+  vpc_id       = data.aws_vpc.main.id  # ✅ ดึงมาอัตโนมัต
 }
 
 module "storage" {

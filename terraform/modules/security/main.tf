@@ -1,4 +1,3 @@
-# Lambda Role
 resource "aws_iam_role" "lambda_exec_role" {
   name = "${var.project_name}-lambda-role"
   assume_role_policy = jsonencode({
@@ -41,7 +40,6 @@ resource "aws_iam_role_policy_attachment" "lambda_attach" {
   policy_arn = aws_iam_policy.lambda_policy.arn
 }
 
-# Redshift Spectrum Role — ให้ Redshift อ่าน S3 ได้
 resource "aws_iam_role" "redshift_spectrum_role" {
   name = "${var.project_name}-spectrum-role"
   assume_role_policy = jsonencode({
@@ -64,7 +62,6 @@ resource "aws_iam_role_policy_attachment" "spectrum_glue" {
   policy_arn = "arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess"
 }
 
-# Security Group สำหรับ Redshift
 resource "aws_security_group" "redshift_sg" {
   name        = "${var.project_name}-redshift-sg"
   description = "Allow Redshift access from dbt and Airflow"
